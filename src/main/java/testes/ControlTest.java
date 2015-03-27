@@ -10,6 +10,9 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.config.BeanDefinition;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Controller;
 
 import persistencia.Dao;
 import entidade.Pessoa;
@@ -18,8 +21,8 @@ import entidade.Pessoa;
  * @author Izaquiel Cruz
  *
  */
-@ManagedBean(name="teste")
-@RequestScoped
+@Controller
+@Scope("request")
 public class ControlTest implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -38,6 +41,7 @@ public class ControlTest implements Serializable {
 
 	public String salvar() {
 		dao.salvar(p);
+		p = new Pessoa();
 		return "index.xhtml";
 	}
 
