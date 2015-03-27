@@ -25,6 +25,12 @@
     </bean>
     <tx:annotation-driven transaction-manager="transactionManager" />
 
+	<bean id="dao" class="persistencia.DaoImpl"></bean>
+	
+	<bean id="control" class="testes.ControlTest"></bean>
+
+	<bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"></bean>
+	
 <!-- 	<bean id="SisDataSource" -->
 <!-- 		class="org.springframework.jdbc.datasource.DriverManagerDataSource"> -->
 <!-- 		<property name="driverClassName" value="org.postgresql.Driver" /> -->

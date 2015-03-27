@@ -24,8 +24,7 @@ public class ControlTest implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
-	@Autowired
-	private Dao<Pessoa> DaoImpl;
+	private Dao<Pessoa> dao;
 
 	@PostConstruct
 	public void init(){
@@ -38,7 +37,7 @@ public class ControlTest implements Serializable {
 	}
 
 	public String salvar() {
-		DaoImpl.salvar(p);
+		dao.salvar(p);
 		return "index.xhtml";
 	}
 
@@ -50,6 +49,13 @@ public class ControlTest implements Serializable {
 		this.p = p;
 	}
 
+	public Dao<Pessoa> getDao() {
+		return dao;
+	}
 	
+	@Autowired
+	public void setDao(Dao<Pessoa> dao) {
+		this.dao = dao;
+	}
 	
 }
